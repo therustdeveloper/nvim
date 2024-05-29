@@ -4,7 +4,7 @@ In this repository I have my Neovim configuration to support development in Rust
 
 ## ToDo
 
-- Improve the `Rust` configuration.
+- Improve the `Rust` configuration. [Done]
 - Add `Go` support.
 - Add `C++` supoort.
 - Add `debugging` for the programming languages.
