@@ -27,7 +27,6 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        --"rust-analyzer",
         --"tsserver",
         --"html",
         --"cssls",
@@ -48,6 +47,7 @@ return {
         "isort", -- python formatter
         "black", -- python formatter
         "pylint",
+        "rust-analyzer",
         --"eslint_d",
       },
     })
