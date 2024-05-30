@@ -49,6 +49,7 @@ return {
         "pylint",
         "rust-analyzer",
         "gopls",
+        "clangd",
         "terraform-ls",
         --"eslint_d",
       },
