@@ -5,13 +5,12 @@ In this repository I have my Neovim configuration to support development in Rust
 ## ToDo
 
 - Improve the `Rust` configuration. [Done]
-- Add `Go` support.
+- Add `Go` support. [Done]
 - Add `C++` supoort.
 - Add `debugging` for the programming languages.
 - Add `terminal` configuration. [Done]
 - Improve the `GitHub` integration.
 - Improve the `NvimTree` navigation. [Done]
-- Add `Terraform` and `Terragrunt` support.
+- Add `Terraform` and `Terragrunt` support. [Done]
 - Explore what options are for `Kubernetes` and `Docker`.
 - Improve the development experience with popups for documentation. [Done]
-

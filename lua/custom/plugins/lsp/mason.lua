@@ -48,6 +48,8 @@ return {
         "black", -- python formatter
         "pylint",
         "rust-analyzer",
+        "gopls",
+        "terraform-ls",
         --"eslint_d",
       },
     })
