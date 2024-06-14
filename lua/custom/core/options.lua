@@ -40,3 +40,6 @@ opt.swapfile = false
 
 -- allows vim to set the terminal window title according to the current file name
 opt.title = true
+
+-- enable mouse support
+-- opt.mouse = "yes"
