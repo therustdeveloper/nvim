@@ -43,3 +43,6 @@ opt.title = true
 
 -- enable mouse support
 -- opt.mouse = "yes"
+
+-- show new-tabline
+opt.showtabline = 2
