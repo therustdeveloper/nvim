@@ -13,7 +13,7 @@ return {
 
     bufferline.setup({
       options = {
-        mode = "tabs",
+        mode = "buffers",
         style_preset = bufferline.style_preset.default,
         themable = true,
         numbers = "ordinal",
@@ -26,7 +26,41 @@ return {
         close_icon = "",
         left_trunc_marker = "",
         right_trunc_marker = "",
+        always_show_bufferline = true,
+        offsets = {
+          {
+            filetype = "NvimTree",
+            text = "File Explorer",
+            text_aligned = "center",
+            separator = true,
+          },
+        },
+        show_buffer_close_icons = true,
+        show_close_icon = true,
+        separator_style = "slant",
       },
+    })
+
+    -- Reapply the offset configuration whenever buffers change
+    local function reapply_offsets()
+      bufferline.setup({
+        options = {
+          offsets = {
+            {
+              filetype = "NvimTree",
+              text = "File Explorer",
+              text_align = "center",
+              separator = true,
+            },
+          },
+        },
+      })
+    end
+
+    -- Autocommands to reapply offsets on buffer events
+    vim.api.nvim_create_autocmd({ "BufWinEnter", "BufWinLeave", "BufEnter", "BufLeave" }, {
+      pattern = "*",
+      callback = reapply_offsets,
     })
   end,
 }
