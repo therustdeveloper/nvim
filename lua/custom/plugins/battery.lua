@@ -1,4 +1,4 @@
-    git push --set-upstream origin maineturn {
+return {
   "justinhj/battery.nvim",
 
   dependencies = {
