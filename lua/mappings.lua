@@ -26,6 +26,8 @@ map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugge
 
 -- rustaceanvim
 map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
+map("n", "<Leader>rc", "<cmd>lua vim.cmd('RustLsp flyCheck')<CR>", { desc = "cargo check" })
+map("n", "<Leader>r", "<cmd>lua vim.cmd('RustLsp runnables')<CR>", { desc = "Rust runnables" })
 
 -- LazyGit
 map("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "LazyGit" })

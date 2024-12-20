@@ -2,6 +2,11 @@
     'mrcjkb/rustaceanvim',
     version = '^5',
     lazy = false,
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      },
+    },
     config = function ()
       local mason_registry = require('mason-registry')
       local codelldb = mason_registry.get_package("codelldb")
