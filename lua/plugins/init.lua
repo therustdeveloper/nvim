@@ -142,43 +142,4 @@ return {
       "rcarriga/nvim-notify",
     }
   },
-
-  -- lazy.nvim configuration for Rust function definition navigation
-  {
-    "simrat39/rust-tools.nvim",
-
-    opts = {
-      tools = {
-        autoSetHints = true,
-        runnables = {
-          use_telescope = true, -- Use Telescope for finding runnables
-        },
-      },
-      server = {
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-        on_attach = function(client, bufnr)
-          local buf_set_keymap = vim.api.nvim_buf_set_keymap
-          local opts = { noremap = true, silent = true }
-
-
-          -- Goto definition keybinding
-          buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-        end,
-        settings = {
-          ["rust-analyzer"] = {
-            assist = {
-              importGranularity = "module",
-              importPrefix = "by_self",
-            },
-            cargo = {
-              allFeatures = true,
-            },
-            procMacro = {
-              enable = true,
-            },
-          },
-        },
-      },
-    }
-  }
 }
