@@ -4,7 +4,8 @@ In this repository I have my Neovim configuration to support development in Rust
 
 ## Brew Dependencies
 
-- `brew install clang-format`
+- brew install clang-format
+- brew install fd
 
 ## ToDo
 
