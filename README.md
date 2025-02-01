@@ -2,6 +2,10 @@
 
 In this repository I have my Neovim configuration to support development in Rust, Go and C++.
 
+## Brew Dependencies
+
+- `brew install clang-format`
+
 ## ToDo
 
 - Improve the `Rust` configuration. [Done]
