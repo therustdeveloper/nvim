@@ -17,7 +17,7 @@ return {
     })
 
     -- Automatically enable inlay hints when opening a file
-    vim.api.nvim_create_authcmd("LspAttach", {
+    vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client and client.server_capabilities.inlayHintProvider then
