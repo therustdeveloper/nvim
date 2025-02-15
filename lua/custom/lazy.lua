@@ -12,7 +12,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Plugins Configuration
-require("lazy").setup({ { import = "custom.plugins" }, { import = "custom.plugins.lsp" } }, {
+require("lazy").setup({
+  { import = "custom.plugins" },
+  { import = "custom.plugins.lsp" },
+}, {
   checker = {
     enabled = true,
     notify = false,
