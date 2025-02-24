@@ -6,6 +6,22 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
   },
+  opts = {
+    servers = {
+      terraformls = {
+        cmd = {
+          "terraform-ls",
+          "serve",
+        },
+        filetypes = {
+          "terraform",
+          "tf",
+          "hcl",
+          "terragrunt",
+        },
+      },
+    },
+  },
   config = function()
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")

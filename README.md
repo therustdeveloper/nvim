@@ -6,6 +6,8 @@ In this repository I have my Neovim configuration to support development in Rust
 
 - brew install clang-format
 - brew install fd
+- brew install terraform-ls
+- brew install serve
 
 ## ToDo
 
