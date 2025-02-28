@@ -8,6 +8,8 @@ In this repository I have my Neovim configuration to support development in Rust
 - brew install fd
 - brew install terraform-ls
 - brew install serve
+- brew install rg
+- Install Node JS
 
 ## ToDo
 
