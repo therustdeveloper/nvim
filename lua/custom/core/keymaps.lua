@@ -22,7 +22,42 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
-keymap.set("n", "<leader>q", ":bd<CR>", { desc = "Close the current buffer" }) --  move current buffer to new tab
+--keymap.set("n", "<leader>q", ":bd<CR>", { desc = "Close the current buffer" }) --  move current buffer to new tab
+keymap.set("n", "<leader>q", function()
+  local bufnr = vim.api.nvim_get_current_buf()
+
+  -- Function to get a valid buffer (skipping side panels like Treesitter)
+  local function get_valid_buffer()
+    local buffers = vim.tbl_filter(function(b)
+      return vim.api.nvim_buf_is_valid(b)
+        and vim.bo[b].buflisted -- Ensure it's a listed file buffer
+        and vim.bo[b].buftype == "" -- Exclude side panels (like Treesitter)
+    end, vim.api.nvim_list_bufs())
+
+    for _, next_buf in ipairs(buffers) do
+      if next_buf ~= bufnr then
+        return next_buf
+      end
+    end
+    return nil
+  end
+
+  -- Find the next buffer to switch to
+  local next_buf = get_valid_buffer()
+
+  -- Switch to the next buffer before closing the current one
+  if next_buf then
+    vim.api.nvim_set_current_buf(next_buf)
+  end
+
+  -- Close the original buffer
+  vim.cmd("bd " .. bufnr)
+
+  -- If no valid buffer was found, open an empty buffer
+  if not next_buf then
+    vim.cmd("enew")
+  end
+end, { desc = "Close current buffer and switch to the next valid file buffer" })
 
 -- Nvim DAP
 keymap.set("n", "<Leader>dl", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debugger step into" })
