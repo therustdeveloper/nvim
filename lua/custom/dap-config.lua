@@ -10,6 +10,16 @@ dap.adapters.codelldb = {
   },
 }
 
+-- Adapter configuration for Delve (Go)
+dap.adapters.delve = {
+  type = "server",
+  port = "${port}",
+  executable = {
+    command = vim.fn.stdpath("data") .. "/mason/bin/dlv",
+    args = { "dap", "-l", "127.0.0.1:${port}" },
+  },
+}
+
 -- Configuration for Rust debugging
 dap.configurations.rust = {
   {
