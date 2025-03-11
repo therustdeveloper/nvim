@@ -41,6 +41,13 @@ return {
     local function close_dapui_and_restore()
       dapui.close()
       vim.defer_fn(restore_layout, 100) -- Slight delay for proper execution
+
+      -- Delete unlisted buffers created by dap-ui
+      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_get_option(buf, "buflisted") == false then
+          vim.api.nvim_buf_delete(buf, { force = true }) -- Force delete unused buffers
+        end
+      end
     end
 
     dap.listeners.before.event_terminated["dapui_config"] = close_dapui_and_restore
