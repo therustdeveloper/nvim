@@ -1,6 +1,6 @@
 local dap = require("dap")
 
--- Adapter configuration for codelldb
+-- Adapter configuration for codelldb (Rust)
 dap.adapters.codelldb = {
   type = "server",
   port = "${port}",
@@ -53,5 +53,43 @@ dap.configurations.rust = {
     cwd = "${workspaceFolder}",
     stopOnEntry = false,
     args = {},
+  },
+}
+
+-- Configuration for Go debugging
+dap.configurations.go = {
+  {
+    name = "Launch File",
+    type = "delve",
+    request = "launch",
+    program = "${file}",
+  },
+  {
+    name = "Debug Package *",
+    type = "delve",
+    request = "launch",
+    program = "${workspaceFolder}/cmd/api",
+  },
+  {
+    name = "Attach to Running Process",
+    type = "delve",
+    request = "attach",
+    processId = function()
+      local output = vim.fn.system("pgrep -n dlv")
+      return tonumber(output) or vim.fn.input("Enter Process ID: ")
+    end,
+  },
+  {
+    name = "Remote Debugging",
+    type = "delve",
+    request = "attach",
+    mode = "remote",
+    substitutePath = {
+      {
+        from = "${workspaceFolder}",
+        to = "/app/cmd/api",
+      },
+    },
+    port = 2345,
   },
 }
