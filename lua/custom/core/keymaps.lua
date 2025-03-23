@@ -22,6 +22,10 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+-- navigate between buffers
+keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { desc = "Open next buffer" }) -- open next buffer
+keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { desc = "Open previous buffer" }) -- open previous buffer
+
 --keymap.set("n", "<leader>q", ":bd<CR>", { desc = "Close the current buffer" }) --  move current buffer to new tab
 keymap.set("n", "<leader>q", function()
   local bufnr = vim.api.nvim_get_current_buf()
